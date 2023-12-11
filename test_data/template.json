@@ -11,7 +11,8 @@
   "actions": {
     "prerender": [
       {
-        "module": "@talnets/action-install-fonts"
+        "module": "@talnets/action-install-fonts",
+        "fontsDirectory": "/Users/darkogrozdanovski/Development/Projects/Talnets/talnets-action-install-fonts/test_data/fonts"
       }
     ]
   }
