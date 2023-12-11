@@ -1,6 +1,6 @@
 {
   "name": "@talnets/action-install-fonts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Install fonts on a windows machine when using @nexrender",
   "main": "src/index.js",
   "scripts": {

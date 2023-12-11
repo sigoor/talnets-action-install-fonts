@@ -13,6 +13,8 @@ const copyFontFileToFontsDirectory = async (fontSourcePath, fontFilename) => {
 };
 const fontExistsInRegistry = (fontName) => {
   try {
+    const command = `REG QUERY "${FONT_REGISTRY}" /v "${fontName} (TrueType)"`;
+    console.log("running command", command)
     execSync(`REG QUERY "${FONT_REGISTRY}" /v "${fontName} (TrueType)"`);
     return true;
   } catch (error) {
@@ -21,9 +23,9 @@ const fontExistsInRegistry = (fontName) => {
 };
 
 const addFontToRegistry = (fontFilename, fontName) => {
-  execSync(
-    `REG ADD "${FONT_REGISTRY}" /v "${fontName} (TrueType)" /t REG_SZ /d "${fontFilename}" /f`,
-  );
+  const command = `REG ADD "${FONT_REGISTRY}" /v "${fontName} (TrueType)" /t REG_SZ /d "${fontFilename}" /f`
+  console.log("running command", command)
+  execSync(command);
   console.log("Font was successfully added to registry");
   return "Font was successfully added to registry";
 };

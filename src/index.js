@@ -20,9 +20,8 @@ module.exports = async (job, settings, { fontsDirectory }, type) => {
 
   const discoveredFonts = await fileUtils.getFontFiles(fontsDirectory);
   for (let { path:fontPath, name } of discoveredFonts) {
-    let filename = path.basename(fontPath, path.extname(fontPath));
     let filenameWithExtension = path.basename(fontPath);
-    if (windowsActions.fontExistsInRegistry(filename)) {
+    if (windowsActions.fontExistsInRegistry(name)) {
       console.log("Font exists in registry", name);
       continue;
     }
