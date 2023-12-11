@@ -1,6 +1,7 @@
 const os = require("os");
 const fileUtils = require("./file-utils");
 const windowsActions = require("./windows/actions");
+const path = require("path")
 
 module.exports = async (job, settings, { fontsDirectory }, type) => {
   if (type !== "prerender") {
@@ -18,16 +19,16 @@ module.exports = async (job, settings, { fontsDirectory }, type) => {
   console.log("Looking for fonts in ", fontsDirectory);
 
   const discoveredFonts = await fileUtils.getFontFiles(fontsDirectory);
-  for (let { path, name } of discoveredFonts) {
-    let filename = path.basename(path, path.extname(path));
-    let filenameWithExtension = path.basename(path);
+  for (let { path:fontPath, name } of discoveredFonts) {
+    let filename = path.basename(fontPath, path.extname(fontPath));
+    let filenameWithExtension = path.basename(fontPath);
     if (windowsActions.fontExistsInRegistry(filename)) {
       console.log("Font exists in registry", name);
       continue;
     }
     console.log("Installing font: ", name);
     const copied = await windowsActions.copyFontFileToFontsDirectory(
-      path,
+      fontPath,
       filenameWithExtension,
     );
     // extract filename from path
