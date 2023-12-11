@@ -1,0 +1,29 @@
+{
+  "name": "@talnets/action-install-fonts",
+  "version": "1.0.0",
+  "description": "Install fonts on a windows machine when using @nexrender",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sigoor/talnets-action-install-fonts.git"
+  },
+  "keywords": [
+    "nexrender",
+    "aftereffects",
+    "fonts",
+    "windows"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sigoor/talnets-action-install-fonts/issues"
+  },
+  "homepage": "https://github.com/sigoor/talnets-action-install-fonts#readme",
+  "devDependencies": {
+    "@nexrender/cli": "^1.46.5",
+    "jest": "^29.7.0"
+  }
+}
